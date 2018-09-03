@@ -14,6 +14,10 @@ class Album extends Component {
        };
     }
 
+  convertToSeconds(song) {
+    const time = song.duration;
+    return Math.floor(time)
+  }
 
   render() {
     return (
@@ -33,8 +37,16 @@ class Album extends Component {
             <col id="song-duration-column" />
           </colgroup>
           <tbody>
+          {this.state.album.songs.map ( (song, index) =>
+          <tr key = {index}>
+          <td> {index+1} </td>
+          <td> {song.title} </td>
+          <td> {this.convertToSeconds(song)} </td>
+          </tr>
+        )}
           </tbody>
         </table>
+
     </section>
     );
   }
