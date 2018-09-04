@@ -77,6 +77,9 @@ renderButton(song) {
   else if (this.state.isPlaying === false || this.state.currentSong !== song && this.state.currentSongHovered === song) {
     return  <Ionicon icon="md-play" />
   }
+  else if (this.state.isPlaying === false && this.state.currentSong === song) {
+    return <Ionicon icon="md-play" />
+  }
 }
 
 
@@ -100,7 +103,7 @@ renderButton(song) {
           <tbody >
           {this.state.album.songs.map ( (song, index) =>
           <tr key = {index} className="song" onClick= { ()=> this.handleSongClick(song)} onMouseEnter={ ()=> this.handleEnter(song)} onMouseLeave = { ()=> this.handleLeave()}>
-          <td> {(this.state.isPlaying === true && this.state.currentSong === song)||(this.state.isHovering && this.state.currentSongHovered === song)? this.renderButton(song):index + 1 } </td>
+          <td> {(this.state.currentSong === song)||(this.state.isHovering && this.state.currentSongHovered === song)? this.renderButton(song):index + 1 } </td>
           <td> {song.title} </td>
           <td> {this.convertToSeconds(song)} </td>
           </tr>
