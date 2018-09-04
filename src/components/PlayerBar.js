@@ -14,7 +14,7 @@ class PlayerBar extends Component {
                <Ionicon icon={this.props.isPlaying ? "md-pause":"md-play"} className={this.props.isPlaying ? "md-pause":"md-play"}/>
 
             </button>
-            <button id="next">
+            <button id="next"  onClick={ this.props.handleNextClick }>
                 <Ionicon icon="ios-skip-forward" className="ion-skip-forward"/>
            </button>
        </section>
