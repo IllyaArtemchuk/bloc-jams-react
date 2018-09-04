@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import albumData from './../data/albums';
-
+import Ionicon from 'react-ionicons';
 
 class Album extends Component {
   constructor(props){
@@ -12,7 +12,9 @@ class Album extends Component {
     this.state = {
       album: album,
       currentSong: album.songs[0],
-      isPlaying: false
+      isPlaying: false,
+      isHovering: false,
+      currentSongHovered: album.songs[0]
        };
 
 
@@ -46,10 +48,37 @@ class Album extends Component {
     }
   }
 
+
   convertToSeconds(song) {
     const time = song.duration;
     return Math.floor(time)
   }
+
+handleEnter(song) {
+    this.setState({
+      isHovering: true,
+      currentSongHovered: song
+    })
+}
+
+handleLeave() {
+  this.setState ({
+    isHovering: false
+  })
+}
+
+renderButton(song) {
+  if (this.state.currentSong === song && this.state.isPlaying === true && this.state.currentSongHovered !== song) {
+    return  <Ionicon icon="md-pause" />
+  }
+  else if (this.state.currentSong === song && this.state.isPlaying === true) {
+    return  <Ionicon icon="md-pause"/>
+  }
+  else if (this.state.isPlaying === false || this.state.currentSong !== song && this.state.currentSongHovered === song) {
+    return  <Ionicon icon="md-play" />
+  }
+}
+
 
   render() {
     return (
@@ -68,10 +97,10 @@ class Album extends Component {
             <col id="song-title-column" />
             <col id="song-duration-column" />
           </colgroup>
-          <tbody>
+          <tbody >
           {this.state.album.songs.map ( (song, index) =>
-          <tr key = {index} className="song" onClick= { ()=> this.handleSongClick(song)}>
-          <td> {index+1} </td>
+          <tr key = {index} className="song" onClick= { ()=> this.handleSongClick(song)} onMouseEnter={ ()=> this.handleEnter(song)} onMouseLeave = { ()=> this.handleLeave()}>
+          <td> {(this.state.isPlaying === true && this.state.currentSong === song)||(this.state.isHovering && this.state.currentSongHovered === song)? this.renderButton(song):index + 1 } </td>
           <td> {song.title} </td>
           <td> {this.convertToSeconds(song)} </td>
           </tr>
