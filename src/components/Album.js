@@ -29,27 +29,30 @@ class Album extends Component {
     this.audioElement.src = album.songs[0].audioSrc;
     }
 
-    formatTime() {
-       var minutes = (Math.floor(this.audioElement.currentTime/60));
-       var seconds = (Math.floor(this.audioElement.currentTime - minutes * 60 ));
-       this.setState ({ formattedCurrentTime: minutes + ":" + seconds })
-    }
-
-    formatTimeTotal() {
-      var minutes = (Math.floor(this.audioElement.duration/60));
-      var seconds = (Math.floor(this.audioElement.duration - minutes * 60 ));
-      this.setState ({ formattedTotalTime: minutes + ":" + seconds })
+    formatTime(time) {
+       var minutes = (Math.floor(time/60));
+       var seconds = (Math.floor(time - minutes * 60 ));
+       if (seconds > 9) {
+          return minutes + ":" + seconds
+        }
+       else if (seconds < 10) {
+         return minutes + ":0" + seconds
+       }
     }
 
     componentDidMount() {
       this.eventListeners = {
         timeupdate: e => {
-          this.setState({ currentTime: this.audioElement.currentTime });
-          this.formatTime();
+          this.setState({
+            currentTime: this.audioElement.currentTime,
+            formattedCurrentTime: this.formatTime( this.audioElement.currentTime )
+           });
         },
         durationchange: e => {
-          this.setState({ duration: this.audioElement.duration });
-          this.formatTimeTotal();
+          this.setState({ duration: this.audioElement.duration ,
+          formattedTotalTime: this.formatTime( this.audioElement.duration ),
+          });
+
         }
       };
       this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
