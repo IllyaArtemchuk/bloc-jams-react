@@ -181,7 +181,7 @@ renderButton(song) {
           <tr key = {index} className="song" onClick= { ()=> this.handleSongClick(song)} onMouseEnter={ ()=> this.handleEnter(song)} onMouseLeave = { ()=> this.handleLeave()}>
           <td> {(this.state.currentSong === song)||(this.state.isHovering && this.state.currentSongHovered === song)? this.renderButton(song):index + 1 } </td>
           <td> {song.title} </td>
-          <td> {this.convertToSeconds(song)} </td>
+          <td> {this.formatTime(song.duration)} </td>
           </tr>
         )}
           </tbody>
