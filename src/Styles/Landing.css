@@ -1,0 +1,30 @@
+.landing {
+  font-family: Exo2;
+  font-size: 1vw;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 3vw;
+  font-weight: 900;
+  color: white;
+}
+
+
+ion-icon {
+  color: white;
+  font-size: 2vw;
+}
+
+.point-description {
+  font-size: 1vw;
+  color: rgb(250,183,10);
+}
+
+
+.point-title {
+  font-size: 2vw;
+  color: rgb(260,120,40);
+  position: relative;
+  margin-bottom: 30px;
+}

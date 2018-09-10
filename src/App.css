@@ -1,17 +1,32 @@
 .App {
   text-align: center;
+  background-Image: url("/assets/images/blurred_backgrounds/blur_bg_3.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-color infinite 4s linear;
   height: 80px;
+  font-family: Audiowide;
+  color: rgb(219,211,50);
+  font-size: 5vw;
 }
+
+
 
 .App-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
+  font-size: 2vw;
+}
+
+.header {
+  font-size: 2vw;
 }
 
 .App-title {
@@ -22,7 +37,8 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes App-logo-color {
+  0% { color: rgb(260,120,40); }
+  50% { color: rgb(250,183,10); }
+  100% { color: rgb(260,120,40); }
 }
