@@ -1,5 +1,5 @@
 .landing {
-  font-family: Exo2;
+  font-family:Ubuntu Mono;
   font-size: 1vw;
   position: relative;
 }
@@ -7,7 +7,7 @@
 .hero-title {
   font-size: 3vw;
   font-weight: 900;
-  color: white;
+  color: rgb(250,230,230);
 }
 
 

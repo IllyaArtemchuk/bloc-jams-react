@@ -21,7 +21,7 @@ class Landing extends Component {
       <div className="point">
         <h2 className="point-title">
         <ion-icon ios="ios-save" md="md-save" > </ion-icon>
-        Unlimited, streaming, ad-free</h2>
+        Unlimited, ad-free</h2>
         <p className="point-description">No arbitrary limits. No distractions.</p>
       </div>
       <div className="point">

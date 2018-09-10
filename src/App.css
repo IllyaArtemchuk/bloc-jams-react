@@ -1,10 +1,5 @@
 .App {
   text-align: center;
-  background-Image: url("/assets/images/blurred_backgrounds/blur_bg_3.jpg");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
 .App-logo {
@@ -27,7 +22,31 @@
 
 .header {
   font-size: 2vw;
+  color: white;
 }
+
+.LandingLink {
+  color: rgb(210,230,230);
+  width: 15vw;
+  height: 4vw;
+  font-size: 2vw;
+  font-weight: bold;
+  background-color: rgb(160,121,179);
+  border: none;
+  text-decoration: none;
+}
+
+.LibraryLink {
+  color: rgb(210,230,230);
+  width: 15vw;
+  height: 4vw;
+  font-size: 2vw;
+  font-weight: bold;
+  background-color: rgb(190,121,179);
+  border: none;
+  text-decoration: none;
+}
+
 
 .App-title {
   font-size: 1.5em;
