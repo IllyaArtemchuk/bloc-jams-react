@@ -3,6 +3,43 @@ import albumData from './../data/albums';
 import Ionicon from 'react-ionicons';
 import PlayerBar from './PlayerBar';
 
+const albumPage = {
+  marginTop: "1vw",
+  fontFamily: "Lato",
+  color: "rgb(20,30,30)"
+}
+const imageStyle = {
+  width: "20vw",
+  borderStyle: "solid",
+  borderWidth: "1vw",
+  borderColor: "rgb(143,142,141)",
+  marginTop: "1vw"
+}
+
+const albumTitle = {
+fontFamily: "Lato",
+fontSize: "2vw",
+marginTop: "1vw"
+}
+
+const albumArtist = {
+  marginTop: "-2vw",
+  fontSize: "1vw"
+}
+
+const albumRelease = {
+  marginTop: "1vw",
+  fontSize: ".7vw"
+}
+
+const albumInformation = {
+  backgroundColor: "rgb(210,210,230)",
+  width: "22vw",
+  margin: "auto",
+  marginTop: "-1.3vw",
+  textAlign: "Center",
+  height:"6vw"
+}
 
 class Album extends Component {
   constructor(props){
@@ -161,13 +198,13 @@ renderButton(song) {
 
   render() {
     return (
-      <section className="album">
+      <section style={albumPage} className="album">
        <section id="album-info">
-          <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
-          <div className="album-details">
-                <h1 id="album-title">{ this.state.album.title }</h1>
-                <h2 className="artist">{ this.state.album.artist }</h2>
-                <div id="release-info">{ this.state.album.releaseInfo }</div>
+          <img style={imageStyle} id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.title}/>
+          <div className="album-details" style= {albumInformation}>
+                <h1 style={albumTitle} id="album-title">{ this.state.album.title }</h1>
+                <h2 style={albumArtist} className="artist">{ this.state.album.artist }</h2>
+                <div style={albumRelease} id="release-info">{ this.state.album.releaseInfo }</div>
             </div>
         </section>
         <table id="song-list">

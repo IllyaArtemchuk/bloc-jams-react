@@ -5,14 +5,15 @@
 }
 
 .hero-title {
-  font-size: 3vw;
+  font-size: 3.5vw;
   font-weight: 900;
   color: rgb(250,230,230);
+  margin: 3vw 3vw 3vw 3vw
 }
 
 
 ion-icon {
-  color: white;
+  color: rgb(62,33,84);
   font-size: 2vw;
 }
 
@@ -24,7 +25,7 @@ ion-icon {
 
 .point-title {
   font-size: 2vw;
-  color: rgb(260,120,40);
+  color: rgb(250,230,230);
   position: relative;
   margin-bottom: 30px;
 }
