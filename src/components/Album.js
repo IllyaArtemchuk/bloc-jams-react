@@ -3,6 +3,11 @@ import albumData from './../data/albums';
 import Ionicon from 'react-ionicons';
 import PlayerBar from './PlayerBar';
 
+const ionPlay = {
+  width:"1vw"
+}
+
+
 const albumPage = {
   marginTop: "1vw",
   fontFamily: "Lato",
@@ -12,7 +17,7 @@ const imageStyle = {
   width: "20vw",
   borderStyle: "solid",
   borderWidth: "1vw",
-  borderColor: "rgb(143,142,141)",
+  borderColor: "rgb(190,190,210)",
   marginTop: "1vw"
 }
 
@@ -29,18 +34,57 @@ const albumArtist = {
 
 const albumRelease = {
   marginTop: "1vw",
-  fontSize: ".7vw"
+  fontSize: ".7vw",
+  fontWeight: "bolder"
 }
 
 const albumInformation = {
   backgroundColor: "rgb(210,210,230)",
-  width: "22vw",
+  width: "20vw",
   margin: "auto",
   marginTop: "-1.3vw",
   textAlign: "Center",
-  height:"6vw"
+  height:"6vw",
+  borderRight: "1vw solid rgb(190,190,210)",
+  borderLeft: "1vw solid rgb(190,190,210)",
 }
 
+const songList = {
+  textAlign: "Center",
+  backgroundColor:  "rgb(190,190,210)",
+  marginLeft: "auto",
+  marginRight: "auto",
+  width: "22vw",
+  fontSize: "1vw",
+  fontFamily: "Lato",
+}
+
+const songNumber = {
+  width: "1.5vw",
+  height: "1.8vw",
+  fontSize: "1vw",
+  position: "auto"
+}
+
+const songTitle = {
+  textAlign: "left",
+  margin: "0vw 0vw 0vw 5vw",
+  width: "5vw"
+}
+
+const categoryRow = {
+  fontSize: "1.2vw",
+  fontWeight: "bold",
+  margin: "1vw 1vw 1vw 1vw",
+}
+
+const songTime = {
+  textAlign : "right",
+}
+
+const hash = {
+  color: "rgb(190,121,179)"
+}
 class Album extends Component {
   constructor(props){
     super(props);
@@ -182,16 +226,16 @@ handleVolumeChange(e) {
 
 renderButton(song) {
   if (this.state.currentSong === song && this.state.isPlaying === true && this.state.currentSongHovered !== song) {
-    return  <Ionicon icon="md-pause" />
+    return  <Ionicon icon="md-pause" fontSize="1.5vw"/>
   }
   else if (this.state.currentSong === song && this.state.isPlaying === true) {
-    return  <Ionicon icon="md-pause"/>
+    return  <Ionicon icon="md-pause" fontSize="1.5vw" />
   }
   else if (this.state.isPlaying === false || this.state.currentSong !== song && this.state.currentSongHovered === song) {
-    return  <Ionicon icon="md-play" />
+    return  <Ionicon icon="md-play" fontSize="1.5vw" />
   }
   else if (this.state.isPlaying === false && this.state.currentSong === song) {
-    return <Ionicon icon="md-play" />
+    return <Ionicon icon="md-play" fontSize="1.5vw" />
   }
 }
 
@@ -207,22 +251,28 @@ renderButton(song) {
                 <div style={albumRelease} id="release-info">{ this.state.album.releaseInfo }</div>
             </div>
         </section>
-        <table id="song-list">
+        <table style={songList} id="song-list">
           <colgroup>
             <col id="song-number-column" />
             <col id="song-title-column" />
             <col id="song-duration-column" />
           </colgroup>
           <tbody >
+          <tr style ={ categoryRow }>
+          <td style = {hash}> # </td>
+          <td> Song </td>
+          <td style={songTime}> <Ionicon icon="ios-clock-outline" fontSize="2vw"/> </td>
+          </tr>
           {this.state.album.songs.map ( (song, index) =>
           <tr key = {index} className="song" onClick= { ()=> this.handleSongClick(song)} onMouseEnter={ ()=> this.handleEnter(song)} onMouseLeave = { ()=> this.handleLeave()}>
-          <td> {(this.state.currentSong === song)||(this.state.isHovering && this.state.currentSongHovered === song)? this.renderButton(song):index + 1 } </td>
-          <td> {song.title} </td>
-          <td> {this.formatTime(song.duration)} </td>
+          <td style= {songNumber}> {(this.state.currentSong === song)||(this.state.isHovering && this.state.currentSongHovered === song)? this.renderButton(song):index + 1 } </td>
+          <td style= {songTitle}> {song.title} </td>
+          <td style ={songTime}> {this.formatTime(song.duration)} </td>
           </tr>
         )}
           </tbody>
         </table>
+
         <PlayerBar
         isPlaying= { this.state.isPlaying }
         currentSong= { this.state.currentSong }

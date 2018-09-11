@@ -4,9 +4,9 @@
 
 .App-logo {
   animation: App-logo-color infinite 10s linear;
-  height: 80px;
+  height: 3vw;
   font-family: Audiowide;
-  color: rgb(219,211,50);
+  color: rgb(250,230,230);
   font-size: 5vw;
   margin-top: 2vw;
 }
@@ -59,6 +59,6 @@
 
 @keyframes App-logo-color {
   0% { color: rgb(250,230,230); }
-  50% { color: rgb(250,183,150); }
+  50% { color: rgb(229, 198, 126); }
   100% { color: rgb(250,230,230); }
 }

@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import '../Styles/Landing.css';
 
-
-const Icon = {
-  fontSize: "200px",
+const pointsBG = {
+  backgroundColor: "rgb(210,210,230)",
+  width: "40vw",
+  marginLeft: "Auto",
+  marginRight: "Auto",
+  border: "1vw solid rgb(190,121,179)",
 }
+
 class Landing extends Component {
   render () {
     return (
     <section className="landing">
     <h1 className="hero-title">Turn the music up!</h1>
 
-    <section className="selling-points">
+    <section  style={pointsBG} className="selling-points">
       <div className="point">
         <h2 className="point-title">
         <ion-icon ios="ios-musical-notes" md="md-musical-notes" ></ion-icon>
